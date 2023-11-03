@@ -1,4 +1,8 @@
 
+print("     ===================================================================================")
+print("                                          VEDA-INTERPRETOR                                      ")
+print("     ===================================================================================\n")
+
 def giveShloka(choice,id):
     veda="processed_data/"
     if(choice == 1):
@@ -17,9 +21,9 @@ def giveShloka(choice,id):
     return sentence
 
 
-choice = int(input("MENU :\n1. Rig Veda\n2. Sama Veda\n3. Atharva Veda\n4. Yajur Veda\nEnter your choice : "))
-print(choice)
-id = int(input("Enter Sholka id : "))
-print(id)
 
-print(giveShloka(choice,id))
+choice = int(input("MENU :\n1. Rig Veda\n2. Sama Veda\n3. Atharva Veda\n4. Yajur Veda\nEnter your choice : "))
+id = int(input("Enter Sholka id : "))
+
+shloka = giveShloka(choice,id)
+print(shloka)
