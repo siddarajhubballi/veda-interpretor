@@ -1,4 +1,5 @@
 import nltk  
+print("Loading...")
 from nltk.corpus import wordnet as wn 
 from nltk.corpus import wordnet
 
@@ -17,6 +18,7 @@ nouns = {x.name().split('.', 1)[0] for x in wn.all_synsets('n')}
 print("     ===================================================================================")
 print("                                          VEDA-INTERPRETOR                                      ")
 print("     ===================================================================================\n")
+
 
 def get_links(item):
     duckDuckUrl = 'https://html.duckduckgo.com/html/'
@@ -90,16 +92,18 @@ choice = int(input("MENU :\n1. Rig Veda\n2. Sama Veda\n3. Atharva Veda\n4. Yajur
 id = int(input("Enter Sholka id : "))
 
 shloka = giveShloka(choice,id)
+
+print("\n=================")
 print(shloka)
-print("=================")
+print("=================\n")
 
 subsentences = shloka.split(",")
 terms = []
 
 for subsentence in subsentences:
     terms = terms + searchTerms(subsentence)
-
 print("Search terms generated")
+
 print("Fetching links...\n")
 
 links = []
@@ -122,3 +126,5 @@ print("Results : ")
 freq = sorted(freq.items(), key=lambda x:x[1], reverse=True)
 for x in freq:
     print(x)
+
+# high-priest of yajna and the divine voice
