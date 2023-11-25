@@ -1,5 +1,5 @@
 import nltk  
-print("Loading...")
+print("\n==============> Loading...\n")
 from nltk.corpus import wordnet as wn 
 from nltk.corpus import wordnet
 
@@ -44,7 +44,7 @@ def get_links(item):
         link = i.get("href")
         link_results.add(link)
     link_list = list(link_results)
-    # print("Links fetched, ", link_list)
+    print("Links fetched, ", link_list)
     return link_list
 
 def getSynonyms(word):
@@ -93,25 +93,25 @@ id = int(input("Enter Sholka id : "))
 
 shloka = giveShloka(choice,id)
 
-print("\n=================")
+print()
 print(shloka)
-print("=================\n")
+print()
 
 subsentences = shloka.split(",")
 terms = []
 
 for subsentence in subsentences:
     terms = terms + searchTerms(subsentence)
-print("Search terms generated")
+print("==============> Search terms generated")
 
-print("Fetching links...\n")
+print("==============> Fetching links...\n")
 
 links = []
 i=1
 for term in terms:
-    if i==10:
+    if i==5:
         break
-    print("Fetching links for " + term)
+    print("==> Fetching links for " + term)
     links = links + get_links(term)
     i=i+1
 
@@ -122,7 +122,7 @@ for item in links:
     else:
         freq[item] = 1
 
-print("Results : ")
+print("==============> Results : ")
 freq = sorted(freq.items(), key=lambda x:x[1], reverse=True)
 for x in freq:
     print(x)
