@@ -168,7 +168,7 @@ def linear_search_prompted(fetched_data):
 
 def main():
     print("===================================================================================")
-    print("                                     VEDA-INTERPRETOR                              ")
+    print("                                     VEDA-INTERPRETER                              ")
     print("===================================================================================\n")
     choice = int(input("MENU :\n1. Rig Veda\n2. Sama Veda\n3. Atharva Veda\n4. Yajur Veda\nEnter your choice : "))
     entry_choice = int(input("How would you like to proceed with the search?\n1)Search by keyword\n2)Search by Shloka id\nEnter your choice: "))
@@ -203,9 +203,10 @@ def main():
     print("Fetching links...\n")
 
     links = []
-    i=1
+    i = 1
+    SEARCH_LIMIT = 20 
     for term in terms:
-        if i==10:
+        if i == SEARCH_LIMIT:
             break
         print("Fetching links for " + term)
         links = links + get_links(term)
